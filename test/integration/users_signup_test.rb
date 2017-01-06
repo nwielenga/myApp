@@ -27,8 +27,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         end
         follow_redirect!
         assert_template 'users/show'
+        # Test to see if flash appears
         assert_not flash.empty?
-
+        
+        #Ensure that the user is logged in after signup
+        assert is_logged_in?
     end
 
 #    test "ensure form is posting to correct URL" do
